@@ -4,6 +4,7 @@ include("vues/v_sommaire.php");
 
 $lesProduits = $pdo->getLesMedicaments();
 $lesRapports = $pdo->getRapportVisite();
+$lesPraticiens = $pdo->lesPracticiens();
 
 $action = $_REQUEST['action'];
 $idVisiteur = $_SESSION['vis_matricule'];
