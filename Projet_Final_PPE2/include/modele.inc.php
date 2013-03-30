@@ -85,6 +85,11 @@ class PdoGsb{
                 return $ligne;
     }
     
+    /**
+     *Partie Raissa pour la partie consulter les praticiens
+     * @param type $tri
+     * @return type 
+     */
     public function getlesPracticiens($tri)
     {
       // retourne un tableau associatif avec la liste des praticiens
@@ -101,6 +106,20 @@ class PdoGsb{
           PRA_VILLE, PRA_COEFNOTORIETE, TYP_LIBELLE, TYP_LIEU
           FROM praticien p, type_praticien t 
           WHERE p.TYP_CODE = t.TYP_CODE AND PRA_NUM=".$num;
+      $rs = PdoGsb::$monPdo->query($req);
+      $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+      return $ligne;
+    }
+    
+    /**
+     *Partie Mariana pour la partie gerer compte rendu
+     * @param type $tri
+     * @return type 
+     */
+     public function lesPracticiens()
+    {
+      // retourne un tableau associatif avec la liste des praticiens
+      $req="SELECT * FROM praticien ";
       $rs = PdoGsb::$monPdo->query($req);
       $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
       return $ligne;
