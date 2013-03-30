@@ -1,5 +1,6 @@
 <div id="contenu">
       <h2>Liste des Praticiens</h2>
+      <form method="POST" action="index.php?uc=lesPraticiens">
       <div class="corpsForm">
      <table >
              <tr>
@@ -34,3 +35,4 @@
 ?>
 
 </table>
+</form>
