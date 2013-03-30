@@ -70,9 +70,9 @@ class PdoGsb{
     }
 
     public function getLesMedicaments() {
-        $req="SELECT  `MED_DEPOTLEGAL` ,  `MED_NOMCOMMERCIAL` , FAM_LIBELLE,  `MED_COMPOSITION` ,  `MED_CONTREINDIC` ,  `MED_PRIXECHANTILLON` 
-              FROM  `medicament` 
-              JOIN famille ON medicament.fam_code = famille.fam_code";
+        $req="SELECT  MED_DEPOTLEGAL ,  MED_NOMCOMMERCIAL , FAM_LIBELLE,  MED_COMPOSITION ,  MED_CONTREINDIC ,  MED_PRIXECHANTILLON 
+              FROM  medicament 
+              JOIN famille ON medicament.FAM_CODE = famille.FAM_CODE";
         $rs= PdoGsb::$monPdo->query($req);
                 $ligne = $rs->fetchAll (PDO::FETCH_ASSOC);
                 return $ligne;
