@@ -25,7 +25,15 @@
                         <label>PRATICIEN:</label>
                     </td>
                     <td>
-                        <INPUT TYPE="select" NAME="selectPraticien" SIZE="25" MAXLENGTH="50" >
+                        <select  NAME="selectPraticien"  MAXLENGTH="50"> 
+                            <option value="choisirpraticiens" >choix praticiens</option>
+                               <?php foreach( $lesPraticiens as $unPraticiens ) {   
+                                            $numero=$unPraticiens['PRA_NUM'];
+                                            $nom= $unPraticiens['PRA_NOM'];
+                                            $prenom= $unPraticiens['PRA_PRENOM'];
+                                            echo ("<option value='.$numero.'>".$nom." ".$prenom."</option>");
+                                            } ?>
+                         </select>
                     </td>
                 </tr>
                 <tr>
@@ -87,7 +95,7 @@
                     </td>
                     <td>
                         <select  NAME="selectProduit1"  MAXLENGTH="50"> 
-                            <option value="choisirproduit" >choix 2ème produit</option>
+                            <option value="choisirproduit" >choix 1ère produit</option>
                                <?php foreach( $lesProduits as $unProduit ) {   
                                             $id=$unProduit['MED_DEPOTLEGAL'];
                                             $nom= $unProduit['MED_NOMCOMMERCIAL'];
