@@ -2,26 +2,10 @@
     <div id="contenu">
         <h2> Rapport de visite </h2>
          </br>
-        <form method="POST" action="index.php?uc=gererCR&action=saisirCR">
+        <form method="POST" action="index.php?uc=gererCR&action=validerCR">
             <table>
                 <tr>
-                    <td>
-                        <label>NUMERO:</label>
-                    </td>
-                    <td>
-                        <INPUT TYPE="text" NAME="numero" SIZE="25" MAXLENGTH="50" >
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>DATE VISITE:</label>
-                    </td>
-                    <td>
-                        <INPUT TYPE="text" NAME="dateVisite" SIZE="25" MAXLENGTH="50" >
-                    </td>
-                </tr>
-                <tr>
-                    <td>
+                   <td>
                         <label>PRATICIEN:</label>
                     </td>
                     <td>
@@ -35,6 +19,22 @@
                                             } ?>
                          </select>
                     </td>
+                <tr>
+                     <td>
+                        <label>NUMERO VISITEUR:</label>
+                    </td>
+                    <td>
+                        <INPUT TYPE="text" NAME="numero" SIZE="25" MAXLENGTH="50" value="<?php echo $idVisiteur; ?>"disabled>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>DATE VISITE:</label>
+                    </td>
+                    <td>
+                        <INPUT TYPE="date" NAME="dateVisite" SIZE="25" MAXLENGTH="50" >
+                    </td>
+                </tr>
                 </tr>
                 <tr>
                     <td>
@@ -108,7 +108,7 @@
                         <INPUT TYPE="checkbox" name="checkRecue" id="checkRecue" onchange="autoriseEchantillon()">
                     </td>
                     <td>
-                        <INPUT TYPE="text" NAME="echantillon1" id="echantillon1" SIZE="25" MAXLENGTH="50" disabled="true" >
+                        <INPUT TYPE="text" NAME="echantillon1" id="echantillon1" SIZE="15" MAXLENGTH="25" disabled="true" >
                         <input type="button" name="plus" value="+" onclick="ajoutEchantillon()">
                     </td>
                 </tr>
@@ -131,7 +131,7 @@
                         <INPUT TYPE="checkbox"  name="checkRecue2" id="checkRecue2" onchange="autoriseEchantillon2()">
                     </td>
                     <td>
-                        <INPUT TYPE="text" NAME="echantillon2" id="echantillon2" SIZE="25" MAXLENGTH="50" disabled="true" >
+                        <INPUT TYPE="text" NAME="echantillon2" id="echantillon2" SIZE="15" MAXLENGTH="50" disabled="true" >
                         <input type="button" name="plus2" value="+" onclick="ajoutEchantillon2()">
                     </td>
                 </tr>
@@ -151,11 +151,9 @@
               </tr>
             </table>
              </br>
-            </br>
-            <input  type="submit" value="Valider" name="valider">
+         <input  type="submit" value="Valider" name="valider">   
+         <input  type="reset" value="Annuler" name="annuler">
        </form>
-         <form method="POST" action="index.php?uc=gererCR&action=annulerCR">
-             
-            <input  type="submit" value="Annuler" name="annuler">
-         </form>
+        
     </div>
+    
