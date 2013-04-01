@@ -125,5 +125,27 @@ class PdoGsb{
       return $ligne;
     }
     
+    public function ajoutRapportVisite($matricule,$num,$numPra,$date,$bilan,$motif){
+        $req="INSERT INTO rapport_visite(VIS_MATRICULE,RAP_NUM,PRA_NUM,RAP_DATE,RAP_BILAN,RAP_MOTIF) VALUES ('".$matricule."','".$num."','".$numPra."','".$date."','".$bilan."','".$motif."')";
+        //$rs = PdoGsb::$monPdo->query($req);
+        PdoGsb::$monPdo->exec($req);
+        
+//        mysql_query($req);     
+    }
+    
+     public function ajoutOffrir($matricule,$num,$medicament,$quantite){
+        $req="INSERT INTO offrir(VIS_MATRICULE,RAP_NUM,MED_DEPOTLEGAL,OFF_QTE) VALUES ('".$matricule."','".$num."','".$medicament."','".$quantite."')";
+        //$rs = PdoGsb::$monPdo->query($req);
+        PdoGsb::$monPdo->exec($req);
+        
+//        mysql_query($req);     
+    }
+    
+    public function num(){
+        $req="select COUNT(RAP_NUM) from rapport_visite ";
+        $rs = PdoGsb::$monPdo->query($req);
+        $ligne = $rs->fetchAll(PDO::FETCH_ASSOC);
+        return $ligne;
+    }
 }   
   ?>
